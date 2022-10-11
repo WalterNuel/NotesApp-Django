@@ -1,0 +1,30 @@
+{% extends 'notes/index.html' %}
+{% block content %}
+<div class="container">
+    <h1>Log In</h1>
+
+    <form method="post" class="login">
+        {% csrf_token %}
+        <p>
+            <label for="id_username">Username:</label>
+            <input type="text" name="username" autofocus="" autocapitalize="none" placeholder="Username"
+                maxlength="150" required="" id="id_username">
+        </p>
+
+
+        <p>
+            <label for="id_password">Password:</label>
+            <input type="password" name="password" required="" id="id_password" placeholder="Password">
+        </p>
+        <p class="btn">
+            <input class="add-note" type="submit" value="Log In" />
+        </p>
+        <div class="link">
+            <p>Don't have an account?<a href="{% url 'notes:register' %}"> Register here!<a/></p>
+        </div>
+        
+        
+    </form>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% extends 'notes/index.html' %}
+{% block content %}
+<div class="delete">
+    <a class="back" href="{% url 'notes:dashboard' %}">&blacktriangleleft;</a>
+    <form method='POST'>
+        {% csrf_token %}
+        <p class="btn" style="margin-top: 1rem;">Are you sure you want to delete this note?</p>
+        <p class="btn">
+            <input class="add-note" type='submit' value='Delete' />
+        </p>
+    </form>
+</div>
+{% endblock content %}

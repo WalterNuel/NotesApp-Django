@@ -1,0 +1,21 @@
+{% extends 'notes/index.html' %}
+{% block content %}
+<div class="details">
+  <a class="back" href="{% url 'notes:dashboard' %}">&blacktriangleleft;</a>
+  <div class="top">
+    <div class="title-container">
+      <input type="text" name="title" value="{{note.title}}" placeholder="Title" class="title" id="" readonly>
+    </div>
+    <div class="edit">
+      <a href="{% url 'notes:note-update' note.id %}" placeholder="Text" class="add-note">Edit</a>
+    </div>
+  </div>
+  
+  <div class="note-body-outer">
+    <textarea class="note-body" name="note-text" id="" readonly rows="22">{{ note.note_text }}</textarea>
+  </div>
+  
+</div>
+
+{% endblock content %}
+

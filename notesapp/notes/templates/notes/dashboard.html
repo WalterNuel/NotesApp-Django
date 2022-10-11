@@ -1,0 +1,55 @@
+{% extends 'notes/index.html' %}
+{% block content %}
+<div class="container">
+
+    <form action="" method="GET" class="search-main">
+        <input type='text' name='search-area' placeholder="Search" value="{{search_input}}" class="search-bar">
+        <input type="submit" class="add-note" value="Go!">
+    </form>
+
+
+    <div class="wrapper">
+
+        {% if notes %}
+        {% for note in notes%}
+        {% if note.title == 'New Note' %}
+        <a href="{% url 'notes:details' note.id %}">
+            <div class="note-wrapper">
+                <div class="note-title">
+                    <p>{{note.title}}</p>
+                    <p class="date">{{note.time_written}}</p>
+                </div>
+                <div class="right-side">
+                    <a class="delete-link" href="{% url 'notes:note-delete' note.id %}">&#215;</a>
+                </div>
+                
+            </div>
+        </a>
+        {% else %}
+        <a href="{% url 'notes:details' note.id %}">
+            <div class="note-wrapper">
+                <div class="note-title">
+                    <p>{{note.title}}</p>
+                    <p class="date">{{note.time_written}}</p>
+                </div>
+                <div class="right-side">
+                    <a class="delete-link" href="{% url 'notes:note-delete' note.id %}">&#215;</a>
+                </div>
+            </div>
+        </a>
+        {% endif %}
+        {% endfor %}
+        <div class="note-wrapper">
+            <a href="{% url 'notes:new-note' %}" class="add-note none">&plus;New Note</a>
+        </div>
+        
+        {% else %}
+        <div class="empty">
+            <p>No notes here!</p>
+            <a href="{% url 'notes:new-note' %}" class="add-note">&plus;New Note</a>
+        </div>
+        
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

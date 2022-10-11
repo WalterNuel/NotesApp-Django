@@ -1,0 +1,17 @@
+Done:
+-User login and registration
+-Create notes
+-User specific note list
+-Delete notes
+-Styling 
+-Edit/Save notes 
+-Style login and register pages
+-Search functionality
+-Saving note text
+
+TODO's:
+    -Default names for empty notes
+    
+
+ago = self.entry_date
+        hours = f'{ago.day}/{ago.month}/{ago.year}'
